@@ -27,8 +27,8 @@
  * -------------------------- */
 @font-face {
   font-family: 'FontAwesome';
-  src: url("../font/fontawesome-webfont.eot?v=3.2.1");
-  src: url("../font/fontawesome-webfont.eot?#iefix&v=3.2.1") format("embedded-opentype"), url("../font/fontawesome-webfont.woff?v=3.2.1") format("woff"), url("../font/fontawesome-webfont.ttf?v=3.2.1") format("truetype"), url("../font/fontawesome-webfont.svg#fontawesomeregular?v=3.2.1") format("svg");
+  src: url("fontawesome-webfont.eot?v=3.2.1");
+  src: url("fontawesome-webfont.eot?#iefix&v=3.2.1") format("embedded-opentype"), url("fontawesome-webfont.woff?v=3.2.1") format("woff"), url("fontawesome-webfont.ttf?v=3.2.1") format("truetype"), url("fontawesome-webfont.svg#fontawesomeregular?v=3.2.1") format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -1976,7 +1976,7 @@ html, body {
   top: 0;
   width: 16em;
   z-index: 10;
-  background: #608777 url(../img/diagonal_waves_608777.png);
+  background: #608777 url(diagonal_waves_608777.png);
   color: #FFFFFF;
 }
 #sidebar .contents > * {
@@ -2000,7 +2000,7 @@ header p {
 }
 
 nav h2 {
-  background: #ed8937 url(../img/otis_redding_ED8937.png);
+  background: #ed8937 url(otis_redding_ED8937.png);
   color: #1F2930;
   font-weight: bold;
   text-transform: uppercase;
@@ -2083,12 +2083,12 @@ nav input:-ms-input-placeholder {
 .row .left {
   width: 55%;
   border-top: 1px dashed #b3c3ce;
-  background: url(../img/side_shadow.png) repeat-y, url(../img/debut_light.png);
+  background: url(side_shadow.png) repeat-y, url(debut_light.png);
 }
 .row .right {
   width: 45%;
   border-top: 1px dotted #d2dbe2;
-  background: url(../img/side_shadow.png) repeat-y, url(../img/clean_textile.png);
+  background: url(side_shadow.png) repeat-y, url(clean_textile.png);
 }
 .row:first-child .left, .row:first-child .right {
   border-top: none;
@@ -2253,7 +2253,7 @@ nav input:-ms-input-placeholder {
     height: 44px;
     background: red;
     display: block;
-    background: #608777 url(../img/diagonal_waves_608777.png);
+    background: #608777 url(diagonal_waves_608777.png);
   }
   #topbar .btn {
     display: block;
@@ -2263,7 +2263,7 @@ nav input:-ms-input-placeholder {
     font-size: 34px;
     text-align: center;
     text-decoration: none;
-    background: #ed8937 url(../img/otis_redding_ED8937.png);
+    background: #ed8937 url(otis_redding_ED8937.png);
     color: #1F2930;
     float: left;
   }
@@ -2309,7 +2309,7 @@ nav input:-ms-input-placeholder {
     border-left: 0;
   }
   .row .right {
-    background: url(../img/side_shadow.png) repeat-y, url(../img/clean_textile.png);
+    background: url(side_shadow.png) repeat-y, url(clean_textile.png);
   }
   .row .right .comment {
     margin-top: 1.2em;

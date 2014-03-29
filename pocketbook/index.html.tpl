@@ -5,7 +5,11 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-    <title>Tucker Bickler</title>   
+    <title>Tucker Bickler {block:SearchPage}- {lang:Search results for SearchQuery}{/block:SearchPage}{block:PermalinkPage}{block:PostSummary}- {PostSummary}{/block:PostSummary}{/block:PermalinkPage}</title>
+
+    {block:Description}
+    <meta name="description" content="{MetaDescription}" />
+    {/block:Description}
 
     <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -91,34 +95,78 @@
             </div>
             <div id="root_load">
                 <div id="root">
+                <!-- START POSTS -->
+                {block:Posts}
                     
                     <article class="row">
                         <div class="left">
 
+                            <!-- PHOTO -->
+                            {block:Photo}
                             <section>
-                                <img class="img" src="http://placehold.it/640x480" alt="alt" />
-                                <img class="img" src="http://placehold.it/640x480" alt="alt" />
-                                <img class="img" src="http://placehold.it/640x480" alt="alt" />
+                                <img class="img" src="{PhotoURL-HighRes}" alt="{PhotoAlt}" />
                             </section>
+                            {/block:Photo}
+                            <!-- /PHOTO -->
+
+                            <!-- VIDEO -->
+                            {block:Video}
+                            <section>
+                                {VideoEmbed-700}
+                            </section>
+                            {/block:Video}
+                            <!-- /VIDEO -->
+
+                            <!-- PHOTOSET -->
+                            {block:Photoset}
+                            <section>
+                                {block:Photos}
+                                <img class="img" src="{PhotoURL-HighRes}" alt="{PhotoAlt}" />
+                                {/block:Photos}
+                            </section>
+                            {/block:Photoset}
+                            <!-- /PHOTOSET -->
+
+                            <!-- TEXT -->
+                            {block:Text}
+                            {block:Title}<h2>{Title}</h2>{/block:Title}
+                            <section>
+                                {Body}
+                            </section>
+                            {/block:Text}
+                            <!-- /TEXT -->
 
                         </div>
                         <aside class="right">
 
-                            <a href=""><time datetime="">March 27, 2014</time></a>
-                            <a href="#"><div class="count">7,005 notes</div></a>
-                            <div class="source">
-                                Source: <a href="{SourceURL}">ofnationalgeographic</a>
+                            {block:Date}<a href="{Permalink}"><time datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}">{Month} {DayOfMonth}, {Year}</time></a>{/block:Date}
+                            {block:NoteCount}<a href="{Permalink}"><div class="count">{NoteCountWithLabel}</div></a>{/block:NoteCount}
+                            {block:ContentSource}<div class="source">
+                                {lang:Source}: <a href="{SourceURL}">{SourceTitle}</a>
+                            </div>{/block:ContentSource}
+                            {block:HasTags}
+                            <ul class="tags">
+                                {block:Tags}
+                                <li class="tag"><a href="{TagURL}">#{Tag}</a></li>
+                                {/block:Tags}
+                            </ul>
+                            {/block:HasTags}
+
+                            <div class="controls">
+                                <div class="control reblog">{ReblogButton size="22" color="grey"}</div><div class="control like">{LikeButton size="22" color="grey"}</div>
                             </div>
 
                             <article class="text">
-                                <div class="caption">
-                                    <p>(via <a href="#">thegr0undislava</a>)</p>
-                                </div>
+                                {block:Caption}
+                                <div class="caption">{Caption}</div>
+                                {/block:Caption}
                             </article>
 
                         </aside>
                     </article>
 
+                {/block:Posts}
+                <!-- END POSTS -->
                 </div>
             </div>
         </div>
@@ -140,8 +188,8 @@
 
             var _trigger_post     = null;
 
-            var _current_page     = 1;
-            var _total_pages      = 1;
+            var _current_page     = {CurrentPage};
+            var _total_pages      = {TotalPages};
             var _url              = document.location.href.split("#")[0];
             var _infinite_timeout = null;
             var _is_loading       = false;
@@ -246,8 +294,10 @@
         });
 
         $(function() {
+            {block:IndexPage}
             var InfiniteScroll = new Tumblelog.Infinite;
             InfiniteScroll.init();
+            {/block:IndexPage}
         });
 
         var _gaq=[['_setAccount','UA-XXXXXXX-X'],['_trackPageview']];
